@@ -409,6 +409,8 @@ module Azure::Storage
         StorageService.with_header headers, "x-ms-blob-content-disposition", options[:content_disposition]
         StorageService.with_header headers, "x-ms-lease-id", options[:lease_id]
 
+        StorageService.with_header headers, "x-ms-tags", options[:tags]
+
         StorageService.add_metadata_to_headers options[:metadata], headers
         add_blob_conditional_headers options, headers
         headers["x-ms-blob-content-type"] = get_or_apply_content_type(content, options[:content_type])
